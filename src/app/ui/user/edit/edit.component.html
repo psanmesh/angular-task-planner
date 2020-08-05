@@ -1,0 +1,47 @@
+<mat-toolbar color="accent" style="margin-top: 0 !important;">
+  <h1 class="example-app-name">Add New User</h1>
+  <span class="spacer"></span>
+  <button mat-raised-button color="primary" routerLink="/app/user/list">
+    Go Back
+  </button>
+</mat-toolbar>
+<div class="container-fluid">
+  <div class="row mt-2">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <form
+            class="example-form"
+            #userForm="ngForm"
+            (ngSubmit)="onSubmit(userForm)"
+          >
+            <mat-form-field class="example-full-width">
+              <mat-label>User Name</mat-label>
+              <input matInput required ngModel name="userName" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Email ID</mat-label>
+              <input matInput required ngModel name="emailID" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput required ngModel name="password" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Image Path</mat-label>
+              <input matInput ngModel name="imagePath" />
+            </mat-form-field>
+            <button
+              mat-raised-button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!userForm.form.valid"
+            >
+              Submit
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

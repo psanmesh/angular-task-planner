@@ -1,0 +1,58 @@
+<!-- <app-loader [loading]="isLoading"></app-loader> -->
+
+<mat-toolbar color="accent">
+  <h1>User List</h1>
+  <span class="spacer"></span>
+  <button mat-raised-button color="primary" routerLink="/app/user/edit">
+    Add
+  </button>
+</mat-toolbar>
+<div class="container-fluid">
+  <div class="row-no-gutters mt-2">
+    <div class="col-sm-12 colmd-12 col-lg-12">
+      <mat-table [dataSource]="userDetailList" class="mat-elevation-z8">
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="imagePath">
+          <mat-header-cell *matHeaderCellDef> Profile </mat-header-cell>
+          <mat-cell *matCellDef="let element"
+            ><img [src]="element.imagePath" width="32" height="32" />
+          </mat-cell>
+        </ng-container>
+        <!-- Position Column -->
+        <ng-container matColumnDef="userName">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.userName }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="password">
+          <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.password }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="emailID">
+          <mat-header-cell *matHeaderCellDef> EmailID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.emailID }} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let element"
+            ><button mat-button (click)="deleteUser(element.id)">
+              Delete
+            </button></mat-cell
+          >
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>

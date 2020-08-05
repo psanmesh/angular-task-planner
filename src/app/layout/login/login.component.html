@@ -1,0 +1,55 @@
+<app-loader [loading]="isLoading"></app-loader>
+<app-alert
+  [message]="errorMessage"
+  (close)="handleClose()"
+  *ngIf="hasError"
+></app-alert>
+<mat-toolbar color="primary" class="example-toolbar">
+  <h1 class="example-app-name">Task</h1>
+</mat-toolbar>
+<div class="container-fluid">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-sm-12 col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form
+            class="example-form"
+            (ngSubmit)="onLogin(loginForm)"
+            #loginForm="ngForm"
+          >
+            <mat-form-field class="example-full-width">
+              <mat-label>User Name</mat-label>
+              <input
+                matInput
+                placeholder="User Name"
+                ngModel
+                name="userName"
+                required
+              />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                ngModel
+                name="password"
+                required
+              />
+            </mat-form-field>
+            <div class="text-center">
+              <button mat-raised-button class="mx-auto" color="primary">
+                Login
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
